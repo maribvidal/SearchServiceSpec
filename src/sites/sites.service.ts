@@ -31,6 +31,6 @@ export class SitesService {
   }
 
   remove(id: string) {
-    return `This action removes a #${id} site`;
+    return this.siteModel.findByIdAndDelete(id).exec();
   }
 }
