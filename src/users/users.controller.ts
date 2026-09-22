@@ -21,7 +21,7 @@ export class UsersController {
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Obtener un sitio específico por su id.' })
+  @ApiOperation({ summary: 'Obtener un usuario específico por su id.' })
   findOne(@Param('id') id: string) {
     return this.usersService.findOne(id);
   }

@@ -1,5 +1,5 @@
 export class CreateSiteDto {
-  nombre: string;
+  name: string;
   url: string;
   depthLevel: number;
   searchFrequency: number;

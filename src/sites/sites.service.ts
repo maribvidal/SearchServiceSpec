@@ -27,7 +27,7 @@ export class SitesService {
   }
 
   update(id: string, updateSiteDto: UpdateSiteDto) {
-    return this.siteModel.findByIdAndUpdate(id, updateSiteDto, { new: true }).exec();
+    return this.siteModel.findByIdAndUpdate(id, updateSiteDto, { returnDocument: 'after' }).exec();
   }
 
   remove(id: string) {
