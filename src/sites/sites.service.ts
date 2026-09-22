@@ -1,26 +1,36 @@
 import { Injectable } from '@nestjs/common';
 import { CreateSiteDto } from './dto/create-site.dto';
 import { UpdateSiteDto } from './dto/update-site.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { Site } from './schemas/site.schema';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class SitesService {
+  constructor(@InjectModel(Site.name) private siteModel: Model<Site>) {}
+
   create(createSiteDto: CreateSiteDto) {
-    return 'This action adds a new site';
+    const createdSite = new this.siteModel(createSiteDto);
+    return createdSite.save()
   }
 
   findAll() {
-    return `This action returns all sites`;
+    return this.siteModel.find().exec();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} site`;
+  findOne(id: string) {
+    return this.siteModel.findById(id).exec();
   }
 
-  update(id: number, updateSiteDto: UpdateSiteDto) {
+  findOneByUserId(userId: string) {
+    return this.siteModel.find({'userId': userId }).exec();
+  }
+
+  update(id: string, updateSiteDto: UpdateSiteDto) {
     return `This action updates a #${id} site`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} site`;
   }
 }
