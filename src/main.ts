@@ -7,8 +7,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
    const config = new DocumentBuilder()
-    .setTitle('App example')
-    .setDescription('The app API description')
+    .setTitle('Página del Swagger')
+    .setDescription('La descripción para la API de SearchServiceSpec')
     .setVersion('1.0')
     .addTag('model')
     .build();
