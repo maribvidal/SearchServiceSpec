@@ -27,7 +27,7 @@ export class SitesService {
   }
 
   update(id: string, updateSiteDto: UpdateSiteDto) {
-    return `This action updates a #${id} site`;
+    return this.siteModel.findByIdAndUpdate(id, updateSiteDto, { new: true }).exec();
   }
 
   remove(id: string) {
