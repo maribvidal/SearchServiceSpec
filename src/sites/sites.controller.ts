@@ -33,7 +33,7 @@ export class SitesController {
   }
 
   @Patch(':id')
-  @ApiOperation({ summary: 'Modificar la información de un sitio específico por medio de su id. (No se pueden modificar los siguientes campos: nombre, url, userId)'})
+  @ApiOperation({ summary: 'Modificar la información de un sitio específico por medio de su id. (No se pueden modificar los siguientes campos: name, url, userId)'})
   update(@Param('id') id: string, @Body() updateSiteDto: UpdateSiteDto) {
     return this.sitesService.update(id, updateSiteDto);
   }
