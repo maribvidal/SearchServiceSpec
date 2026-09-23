@@ -22,7 +22,7 @@ export class SitesService {
     return this.siteModel.findById(id).exec();
   }
 
-  findOneByUserId(userId: string) {
+  findByUserId(userId: string) {
     return this.siteModel.find({'userId': userId }).exec();
   }
 

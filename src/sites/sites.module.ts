@@ -8,5 +8,6 @@ import { Site, SiteSchema } from './schemas/site.schema';
   imports: [MongooseModule.forFeature([{ name: Site.name, schema: SiteSchema }])],
   controllers: [SitesController],
   providers: [SitesService],
+  exports: [SitesService]
 })
 export class SitesModule {}

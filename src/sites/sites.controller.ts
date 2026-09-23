@@ -26,12 +26,6 @@ export class SitesController {
     return this.sitesService.findOne(id);
   }
 
-  @Get('/user/:userId')
-  @ApiOperation({ summary: 'Obtener los sitios que hayan sido creados por un usuario.' })
-  findOneByUserId(@Param('userId') userId: string) {
-    return this.sitesService.findOneByUserId(userId);
-  }
-
   @Patch(':id')
   @ApiOperation({ summary: 'Modificar la información de un sitio específico por medio de su id. (No se pueden modificar los siguientes campos: name, url, userId)'})
   update(@Param('id') id: string, @Body() updateSiteDto: UpdateSiteDto) {
