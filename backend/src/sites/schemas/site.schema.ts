@@ -5,7 +5,7 @@ import { User } from '../../users/schemas/user.schema';
 @Schema()
 export class Site extends Document {
   @Prop()
-  nombre: string;
+  name: string;
 
   @Prop()
   url: string;
