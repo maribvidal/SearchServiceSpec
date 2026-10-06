@@ -25,8 +25,39 @@ export const createSite = async (siteData, userId) => {
             userId: userId
         })
         return response.data;
-    } catch(error) {
+    } catch (error) {
         console.error(error)
         throw error
+    }
+}
+
+export const updateSite = async (siteId, siteData) => {
+    try {
+        const response = await testAPI.patch(`sites/${siteId}`, siteData)
+        return response.data;
+    } catch (error) {
+        console.error(error)
+        throw error
+    }
+}
+
+export const deleteSite = async (siteId) => {
+    try {
+        const response = await testAPI.delete(`/sites/${siteId}`)
+        return response.data;
+    } catch (error) {
+        console.error(error)
+        throw error
+    }
+}
+
+export const getSitesByUser = async (userId) => {
+    try {
+        const response = await testAPI.get(`/users/${userId}/sites`);
+        return response.data; 
+        
+    } catch (error) {
+        console.error('Error al obtener los sitios del usuario:', error);
+        throw error;
     }
 }

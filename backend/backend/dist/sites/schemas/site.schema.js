@@ -47,7 +47,7 @@ const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = __importStar(require("mongoose"));
 const user_schema_1 = require("../../users/schemas/user.schema");
 let Site = class Site extends mongoose_2.Document {
-    nombre;
+    name;
     url;
     depthLevel;
     captureFrequency;
@@ -59,7 +59,7 @@ exports.Site = Site;
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
-], Site.prototype, "nombre", void 0);
+], Site.prototype, "name", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)

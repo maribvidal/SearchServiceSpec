@@ -1,7 +1,7 @@
 import mongoose, { Document } from 'mongoose';
 import { User } from '../../users/schemas/user.schema';
 export declare class Site extends Document {
-    nombre: string;
+    name: string;
     url: string;
     depthLevel: number;
     captureFrequency: number;
@@ -18,6 +18,15 @@ export declare const SiteSchema: mongoose.Schema<Site, mongoose.Model<Site, any,
 }, "id"> & mongoose.HydratedDocumentOverrides<{
     id: string;
 }>, {
+    name?: mongoose.SchemaDefinitionProperty<string, Site, mongoose.Document<unknown, {}, Site, {
+        id: string;
+    }, mongoose.DefaultSchemaOptions> & Omit<Site & Required<{
+        _id: mongoose.Types.ObjectId;
+    }> & {
+        __v: number;
+    }, "id"> & mongoose.HydratedDocumentOverrides<{
+        id: string;
+    }>> | undefined;
     _id?: mongoose.SchemaDefinitionProperty<mongoose.Types.ObjectId, Site, mongoose.Document<unknown, {}, Site, {
         id: string;
     }, mongoose.DefaultSchemaOptions> & Omit<Site & Required<{
@@ -73,15 +82,6 @@ export declare const SiteSchema: mongoose.Schema<Site, mongoose.Model<Site, any,
         id: string;
     }>> | undefined;
     pageResolver?: mongoose.SchemaDefinitionProperty<string | undefined, Site, mongoose.Document<unknown, {}, Site, {
-        id: string;
-    }, mongoose.DefaultSchemaOptions> & Omit<Site & Required<{
-        _id: mongoose.Types.ObjectId;
-    }> & {
-        __v: number;
-    }, "id"> & mongoose.HydratedDocumentOverrides<{
-        id: string;
-    }>> | undefined;
-    nombre?: mongoose.SchemaDefinitionProperty<string, Site, mongoose.Document<unknown, {}, Site, {
         id: string;
     }, mongoose.DefaultSchemaOptions> & Omit<Site & Required<{
         _id: mongoose.Types.ObjectId;

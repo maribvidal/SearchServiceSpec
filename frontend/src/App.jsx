@@ -26,7 +26,7 @@ function App() {
       <main>
         <Routes>
           {/* Por ahora, hacer que MisSitios sea la página inicial por defecto */}
-          <Route path="/" element={<MisSitios />} />
+          <Route path="/" element={<MisSitios userId={loggedUserId} />} />
           <Route path="/registrarsitio" element={<RegistrarSitio userId={loggedUserId} />} />
 
           <Route path="*" element={<NotFoundPage />} />
