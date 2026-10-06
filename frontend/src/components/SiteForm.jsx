@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { createSite } from '../services/api';
 
-function SiteForm() {
+function SiteForm(props) {
     // Declarar un estado por cada input solicitado
     const [siteurl, setSiteurl] = useState('');
     const [sitename, setSitename] = useState('');
@@ -31,11 +31,10 @@ function SiteForm() {
             docextr: docextr,
             pageres: pageres
         }
-        let userId = "6ab2e66b2b670fb41f75c033"; // Por ahora voy a utilizar un userId provisorio
         console.log("Datos listos para enviar a Nest.js:", siteData);
 
         try {
-            const data = await createSite(siteData, userId)
+            const data = await createSite(siteData, props.userId)
             console.log(' > Se pudo crear la página con éxito: ', data)
             resetFields();
         } catch (error) {

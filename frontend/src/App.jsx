@@ -6,6 +6,7 @@ import Navbar from './components/Navbar.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
+  const loggedUserId = "6ab2e66b2b670fb41f75c033"; // Por ahora voy a utilizar un userId provisorio
 
   return (
     <>
@@ -21,7 +22,7 @@ function App() {
       <main>
         {/* Sección donde va a estar el formulario que le permite al usuario instanciar un sitio */}
         <section>
-            <SiteForm/>
+            <SiteForm userId={loggedUserId}/>
         </section>
       </main>
     </>
