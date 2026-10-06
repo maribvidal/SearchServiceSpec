@@ -2,7 +2,7 @@ export class CreateSiteDto {
   name: string;
   url: string;
   depthLevel: number;
-  searchFrequency: number;
+  captureFrequency: number;
   documentExtractor: string;
   pageResolver?: string;
   userId: string;

@@ -14,7 +14,7 @@ export class Site extends Document {
   depthLevel: number;
 
   @Prop()
-  searchFrequency: number;
+  captureFrequency: number;
 
   @Prop()
   documentExtractor: string;
