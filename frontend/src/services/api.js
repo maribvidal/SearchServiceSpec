@@ -51,6 +51,16 @@ export const deleteSite = async (siteId) => {
     }
 }
 
+export const getSiteById = async (siteId) => {
+    try {
+        const response = await testAPI.get(`/sites/${siteId}`)
+        return response.data;
+    } catch (error) {
+        console.error(error)
+        throw error
+    }
+}
+
 export const getSitesByUser = async (userId) => {
     try {
         const response = await testAPI.get(`/users/${userId}/sites`);

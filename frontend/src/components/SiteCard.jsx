@@ -1,7 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import { deleteSite } from "../services/api";
 
 function SiteCard(props) {
     const siteId = props.siteid
+    const navigate = useNavigate();
+    
+    const irAModificar = () => {
+        // Le decimos a React que cambie la URL del navegador
+        navigate(`/modificar/${siteId}`);
+    }
 
     const borrarSitio = async () => {
         try {
@@ -21,7 +28,7 @@ function SiteCard(props) {
             </div>
             <div id="sitebuttos">
                 <button id="deletesite" onClick={borrarSitio}>Borrar sitio</button>
-                <button id="modifysite">Modificar sitio</button>
+                <button id="modifysite" onClick={irAModificar}>Modificar sitio</button>
             </div>
         </div>
     )

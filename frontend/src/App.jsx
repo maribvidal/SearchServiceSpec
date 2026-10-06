@@ -7,6 +7,7 @@ import Navbar from './components/Navbar.jsx'
 import RegistrarSitio from './pages/RegistrarSitio.jsx'
 import MisSitios from './pages/MisSitios.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
+import ModificarSitio from './components/ModificarSitio.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,7 +29,7 @@ function App() {
           {/* Por ahora, hacer que MisSitios sea la página inicial por defecto */}
           <Route path="/" element={<MisSitios userId={loggedUserId} />} />
           <Route path="/registrarsitio" element={<RegistrarSitio userId={loggedUserId} />} />
-
+          <Route path="/modificar/:id" element={<ModificarSitio />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

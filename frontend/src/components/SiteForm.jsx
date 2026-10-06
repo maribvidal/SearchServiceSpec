@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { createSite } from '../services/api';
+import { useNavigate } from 'react-router-dom';
 
 function SiteForm(props) {
     // Declarar un estado por cada input solicitado
@@ -9,6 +10,8 @@ function SiteForm(props) {
     const [captfreq, setCaptfreq] = useState('');
     const [docextr, setDocextr] = useState('');
     const [pageres, setPageres] = useState('');
+
+    const navigate = useNavigate();
     
     const resetFields = () => {
         setSitename('');
@@ -37,6 +40,7 @@ function SiteForm(props) {
             const data = await createSite(siteData, props.userId)
             console.log(' > Se pudo crear la página con éxito: ', data)
             resetFields();
+            navigate('/');
         } catch (error) {
             console.error(' > Hubo un error al crear el sitio: ', error)
         }
@@ -62,7 +66,7 @@ function SiteForm(props) {
             <label htmlFor="pageres">Page resolver (Script) (Opcional):</label><br/>
             <textarea id="pageres" name="pageres" rows="5" cols="50" value={pageres} onChange={(event) => setPageres(event.target.value)} /><br/>
 
-            <input type="submit" value="Submit"></input>
+            <button type="submit">Crear sitio</button>
         </form>
     )
 }
