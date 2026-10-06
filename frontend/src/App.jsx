@@ -1,8 +1,12 @@
 import { useState } from 'react'
 import './App.css'
+import { Routes, Route } from 'react-router-dom'
 
-import SiteForm from './components/SiteForm.jsx'
 import Navbar from './components/Navbar.jsx'
+
+import RegistrarSitio from './pages/RegistrarSitio.jsx'
+import MisSitios from './pages/MisSitios.jsx'
+import NotFoundPage from './pages/NotFoundPage.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,10 +24,13 @@ function App() {
 
       {/* Cuerpo principal */}
       <main>
-        {/* Sección donde va a estar el formulario que le permite al usuario instanciar un sitio */}
-        <section>
-            <SiteForm userId={loggedUserId}/>
-        </section>
+        <Routes>
+          {/* Por ahora, hacer que MisSitios sea la página inicial por defecto */}
+          <Route path="/" element={<MisSitios />} />
+          <Route path="/registrarsitio" element={<RegistrarSitio userId={loggedUserId} />} />
+
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </main>
     </>
   )

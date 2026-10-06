@@ -1,7 +1,7 @@
 function MisSitios(props) {
     return (
         <section>
-            <h1>Mis sitios</h1>
+            <h2>Mis sitios</h2>
         </section>
     )
 }
