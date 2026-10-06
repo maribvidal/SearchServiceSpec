@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// eslint-disable-next-line no-unused-vars
 const BACKEND_URL = 'http://localhost:3000';
 
 // Métodos CRUD para Sites
