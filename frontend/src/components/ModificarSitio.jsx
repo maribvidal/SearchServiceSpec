@@ -60,7 +60,7 @@ function ModificarSitio() {
         return <h2>Cargando datos del sitio...</h2>;
 
     return (
-        <div>
+        <div class="siteform">
             <h2>Modificar Sitio</h2>
             <SiteCommonForm handleSubmit={handleSubmit} siteCommonInfo={siteCommonInfo} setSiteCommonInfo={setSiteCommonInfo} />
         </div>

@@ -1,11 +1,11 @@
-import SiteForm from '../components/SiteForm.jsx'
+import CrearSitio from '../components/CrearSitio.jsx'
 
 function RegistrarSitio({ userId }) {
 
     return (
         <section>
             <h2>Registrar un sitio</h2>
-            <SiteForm userId={userId}/>
+            <CrearSitio userId={userId}/>
         </section>
     )
 }
