@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { getSitesByUser } from '../services/api';
 import SiteCard from '../components/SiteCard';
 
-function MisSitios(props) {
+function MisSitios({ userId }) {
   const [sites, setSites] = useState([]); // Con esto mantengo la información de los sitios en la página
   const [isLoading, setIsLoading] = useState(true);
   
@@ -15,7 +15,7 @@ function MisSitios(props) {
   useEffect(() => {
     const fetchSites = async () => {
       try {
-            const data = await getSitesByUser(props.userId);
+            const data = await getSitesByUser(userId);
             setSites(data); // Guardamos el arreglo que nos mandó Nest.js
       } catch (error) {
             console.error("No se pudieron cargar los sitios", error);
@@ -26,7 +26,7 @@ function MisSitios(props) {
 
     fetchSites();
   // El useEffect solo se vuelve a ejecutar si esta variable camba
-  }, [props.userId]);
+  }, [userId]);
 
   if (isLoading) {
     return <h2>Cargando tus sitios...</h2>;

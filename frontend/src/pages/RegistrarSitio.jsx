@@ -1,11 +1,11 @@
 import SiteForm from '../components/SiteForm.jsx'
 
-function RegistrarSitio(props) {
+function RegistrarSitio({ userId }) {
 
     return (
         <section>
             <h2>Registrar un sitio</h2>
-            <SiteForm userId={props.userId}/>
+            <SiteForm userId={userId}/>
         </section>
     )
 }

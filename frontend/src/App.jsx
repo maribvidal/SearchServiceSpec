@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 
@@ -10,7 +9,6 @@ import NotFoundPage from './pages/NotFoundPage.jsx'
 import ModificarSitio from './components/ModificarSitio.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
   const loggedUserId = "6ab2e66b2b670fb41f75c033"; // Por ahora voy a utilizar un userId provisorio
 
   return (

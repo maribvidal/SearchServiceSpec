@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { createSite } from '../services/api';
 import { useNavigate } from 'react-router-dom';
 
-function SiteForm(props) {
+function SiteForm({ userId }) {
     // Declarar un estado por cada input solicitado
     const [siteurl, setSiteurl] = useState('');
     const [sitename, setSitename] = useState('');
@@ -12,14 +12,6 @@ function SiteForm(props) {
     const [pageres, setPageres] = useState('');
 
     const navigate = useNavigate();
-    
-    const resetFields = () => {
-        setSitename('');
-        setDepthlevel('');
-        setCaptfreq('');
-        setDocextr('');
-        setPageres('');
-    }
 
     // Esta función va a anular el submit del formulario
     const handleSubmit = async (event) => {
@@ -37,9 +29,8 @@ function SiteForm(props) {
         console.log("Datos listos para enviar a Nest.js:", siteData);
 
         try {
-            const data = await createSite(siteData, props.userId)
+            const data = await createSite(siteData, userId)
             console.log(' > Se pudo crear la página con éxito: ', data)
-            resetFields();
             navigate('/');
         } catch (error) {
             console.error(' > Hubo un error al crear el sitio: ', error)

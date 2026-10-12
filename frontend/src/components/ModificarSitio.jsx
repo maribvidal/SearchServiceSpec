@@ -38,8 +38,8 @@ function ModificarSitio() {
         
         // Armamos el objeto solo con lo que se puede modificar según tu backend
         const datosActualizados = {
-            depthLevel: parseInt(depthlevel, 10),
-            captureFrequency: parseInt(captfreq, 10),
+            depthLevel: depthlevel,
+            captureFrequency: captfreq,
             documentExtractor: docextr,
             pageResolver: pageres
         };
