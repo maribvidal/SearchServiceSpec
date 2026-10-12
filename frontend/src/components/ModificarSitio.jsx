@@ -23,10 +23,12 @@ function ModificarSitio() {
                 // Obtener la información actual del sitio
                 const siteData = await getSiteById(id);
                 
-                setSiteCommonInfo({...siteCommonInfo, depthlevel: siteData.depthLevel});
-                setSiteCommonInfo({...siteCommonInfo, captfreq: siteData.captureFrequency});
-                setSiteCommonInfo({...siteCommonInfo, docextr: siteData.documentExtractor});
-                setSiteCommonInfo({...siteCommonInfo, pageres: siteData.pageResolver});
+                setSiteCommonInfo({
+                    depthlevel: siteData.depthLevel,
+                    captfreq: siteData.captureFrequency, 
+                    docextr: siteData.documentExtractor, 
+                    pageres: siteData.pageResolver
+                });
             } catch (error) {
                 console.error("Error al obtener el sitio", error);
             } finally {
@@ -35,7 +37,7 @@ function ModificarSitio() {
         };
 
         fetchSiteData();
-    }, [id, siteCommonInfo]);
+    }, [id]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
