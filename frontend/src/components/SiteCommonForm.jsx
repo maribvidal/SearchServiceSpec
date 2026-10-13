@@ -1,7 +1,7 @@
 // Este componente busca reunir los inputs en común que tienen los
 // formularios de manipulación de un sitio.
 
-function SiteCommonForm({ handleSubmit, siteCommonInfo, setSiteCommonInfo }) {
+function SiteUpdateForm({ handleSubmit, siteCommonInfo, setSiteCommonInfo }) {
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -31,4 +31,4 @@ function SiteCommonForm({ handleSubmit, siteCommonInfo, setSiteCommonInfo }) {
     )
 }
 
-export default SiteCommonForm;
+export default SiteUpdateForm;
