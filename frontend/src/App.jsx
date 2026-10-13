@@ -3,10 +3,10 @@ import { Routes, Route } from 'react-router-dom'
 
 import Navbar from './components/Navbar.jsx'
 
-import RegistrarSitio from './pages/RegistrarSitio.jsx'
 import MisSitios from './pages/MisSitios.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
-import ModificarSitio from './components/ModificarSitio.jsx'
+import RegistrarSitioPage from './pages/RegistrarSitioPage.jsx'
+import ModificarSitioPage from './pages/ModificarSitioPage.jsx'
 
 function App() {
   const loggedUserId = "6ab2e66b2b670fb41f75c033"; // Por ahora voy a utilizar un userId provisorio
@@ -26,8 +26,8 @@ function App() {
         <Routes>
           {/* Por ahora, hacer que MisSitios sea la página inicial por defecto */}
           <Route path="/" element={<MisSitios userId={loggedUserId} />} />
-          <Route path="/registrarsitio" element={<RegistrarSitio userId={loggedUserId} />} />
-          <Route path="/modificar/:id" element={<ModificarSitio />} />
+          <Route path="/registrarsitio" element={<RegistrarSitioPage userId={loggedUserId} />} />
+          <Route path="/modificar/:id" element={<ModificarSitioPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

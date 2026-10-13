@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { updateSite, getSiteById } from '../services/api'; 
 
-import SiteUpdateForm from './SiteUpdateForm';
+import SiteUpdateForm from '../components/SiteUpdateForm';
 
-function ModificarSitio() {
+function ModificarSitioPage() {
     const { id } = useParams(); // Extraemos el id de la URL actual
     const navigate = useNavigate();
 
-    const [siteCommonInfo, setSiteCommonInfo] = useState({
+    const [siteUpdateInfo, setSiteUpdateInfo] = useState({
         depthlevel: '',
         captfreq: '',
         docextr: '',
@@ -23,7 +23,7 @@ function ModificarSitio() {
                 // Obtener la información actual del sitio
                 const siteData = await getSiteById(id);
                 
-                setSiteCommonInfo({
+                setSiteUpdateInfo({
                     depthlevel: siteData.depthLevel,
                     captfreq: siteData.captureFrequency, 
                     docextr: siteData.documentExtractor, 
@@ -42,19 +42,26 @@ function ModificarSitio() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         
-        // Armamos el objeto solo con lo que se puede modificar según tu backend
-        const datosActualizados = {
-            depthLevel: siteCommonInfo.depthlevel,
-            captureFrequency: siteCommonInfo.captfreq,
-            documentExtractor: siteCommonInfo.docextr,
-            pageResolver: siteCommonInfo.pageres
-        };
-
         try {
+            // Client-side validation
+            const funcRegex = /^function\s+\w+\(\w*\)\s*{(\s*\w*)*}/;
+            if (!funcRegex.test(siteUpdateInfo.docextr))
+                throw SyntaxError("La función pasada en el campo documentExtractor no es válida.")
+            if (siteUpdateInfo.pageres != '' && !funcRegex.test(siteUpdateInfo.pageres))
+                throw SyntaxError("La función pasada en el campo pageResolver no es válida.")
+
+            // Armamos el objeto solo con lo que se puede modificar según tu backend
+            const datosActualizados = {
+                depthLevel: siteUpdateInfo.depthlevel,
+                captureFrequency: siteUpdateInfo.captfreq,
+                documentExtractor: siteUpdateInfo.docextr,
+                pageResolver: siteUpdateInfo.pageres
+            };
+
             await updateSite(id, datosActualizados);
             navigate('/');
-        } catch (error) {
-            console.error('Error al modificar', error);
+        } catch ({ name, message }) {
+            alert(` > Hubo un error de tipo ${name} crear el sitio: \n${message}`);
         }
     }
 
@@ -64,9 +71,9 @@ function ModificarSitio() {
     return (
         <div class="siteform">
             <h2>Modificar Sitio</h2>
-            <SiteUpdateForm handleSubmit={handleSubmit} siteCommonInfo={siteCommonInfo} setSiteCommonInfo={setSiteCommonInfo} />
+            <SiteUpdateForm handleSubmit={handleSubmit} siteUpdateInfo={siteUpdateInfo} setSiteUpdateInfo={setSiteUpdateInfo} />
         </div>
     )
 }
 
-export default ModificarSitio;
+export default ModificarSitioPage;
