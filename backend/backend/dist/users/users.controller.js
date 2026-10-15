@@ -79,7 +79,7 @@ __decorate([
 __decorate([
     (0, common_1.Get)('/emails/:email'),
     (0, swagger_1.ApiOperation)({ summary: 'Revisar si un correo está registrado.' }),
-    openapi.ApiResponse({ status: 200 }),
+    openapi.ApiResponse({ status: 200, type: Object }),
     __param(0, (0, common_1.Param)('email')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),

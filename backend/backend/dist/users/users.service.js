@@ -33,7 +33,7 @@ let UsersService = class UsersService {
         return this.userModel.findById(id).exec();
     }
     isEmailBeingUsed(email) {
-        return this.userModel.exists({ email: email });
+        return this.userModel.exists({ email: email }).exec();
     }
     update(id, updateUserDto) {
         return this.userModel.findByIdAndUpdate(id, updateUserDto, { returnDocument: 'after' }).exec();

@@ -1,5 +1,6 @@
 import './App.css'
 
+import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom'
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -8,9 +9,10 @@ import MisSitios from './pages/MisSitios/MisSitios.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
 import RegistrarSitioPage from './pages/RegistrarSitio/RegistrarSitioPage.jsx'
 import ModificarSitioPage from './pages/ModificarSitio/ModificarSitioPage.jsx'
+import { checkIfEmailIsBeingUsed, createUser } from './services/UsersService.js'
 
 function App() {
-  const loggedUserId = "6ab2e66b2b670fb41f75c033"; // Por ahora voy a utilizar un userId provisorio
+  const [loggedUserId, setLoggedUserId] = useState('')
 
   // Para cuestiones relacionadas con la autenticación
   const {
@@ -20,8 +22,40 @@ function App() {
     user, // User profile
   } = useAuth0();
 
-  const signup = () =>
-    login({ authorizationParams: { screen_hint: "signup" } });
+  const signup = () => {
+      login({ authorizationParams: { screen_hint: "signup" } });
+    }
+
+  {/* Prestarle atención a la variable isAuthenticated */}
+  useEffect(() => {
+      async function checkEmail() {
+        // Revisar si existe el usuario
+        if (user) {
+          try {
+            
+            // Si el usuario se autenticó...
+            if (isAuthenticated) {
+              // Fijarse si es la primera vez que el usuario inicia sesión
+              // en la página o no.
+              const call = await checkIfEmailIsBeingUsed(user.email);
+              let userId = call._id;
+
+              if (!call) {
+                const call2 = await createUser(user.name, user.email);
+                userId = call2._id;
+                console.log("Usuario creado con éxito.");
+              }
+
+              // Settear el id del usuario loggeado para ver quien crea cada sitio
+              setLoggedUserId(userId)
+            }
+          } catch (error) {
+            console.log(error)
+          }
+        }
+      }
+      checkEmail()
+  }, [isAuthenticated])
 
   if (isLoading) return "Cargando...";
 
@@ -52,8 +86,8 @@ function App() {
         </>
       ) : (
         <>
-          <button onClick={signup}>Signup</button>
-          <button onClick={login}>Login</button>
+          <button onClick={signup}>Registrar cuenta</button>
+          <button onClick={login}>Iniciar sesión</button>
         </>
       ) }
     </>

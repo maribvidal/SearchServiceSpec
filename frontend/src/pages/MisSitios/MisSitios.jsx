@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getSitesByUser } from '../../services/api';
+import { getSitesByUser } from '../../services/UsersService.js';
 import SiteCard from '../../components/SiteCard';
 
 function MisSitios({ userId }) {
@@ -14,13 +14,15 @@ function MisSitios({ userId }) {
 
   useEffect(() => {
     const fetchSites = async () => {
-      try {
-            const data = await getSitesByUser(userId);
-            setSites(data); // Guardamos el arreglo que nos mandó Nest.js
-      } catch (error) {
-            console.error("No se pudieron cargar los sitios", error);
-      } finally {
-            setIsLoading(false); 
+      if (userId) {
+        try {
+              const data = await getSitesByUser(userId);
+              setSites(data); // Guardamos el arreglo que nos mandó Nest.js
+        } catch (error) {
+              console.error("No se pudieron cargar los sitios", error);
+        } finally {
+              setIsLoading(false); 
+        }
       }
     };
 

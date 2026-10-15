@@ -25,7 +25,7 @@ export class UsersService {
   }
 
   isEmailBeingUsed(email: string) {
-    return this.userModel.exists({ email: email });
+    return this.userModel.exists({ email: email }).exec();
   }
 
   update(id: string, updateUserDto: UpdateUserDto) {

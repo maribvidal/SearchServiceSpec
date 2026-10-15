@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { updateSite, getSiteById } from '../../services/api'; 
+import { updateSite, getSiteById } from '../../services/SitesService.js'; 
 
 import ModificarSitioForm from './ModificarSitioForm';
 
@@ -69,7 +69,7 @@ function ModificarSitioPage() {
         return <h2>Cargando datos del sitio...</h2>;
 
     return (
-        <div class="siteform">
+        <div className="siteform">
             <h2>Modificar Sitio</h2>
             <ModificarSitioForm handleSubmit={handleSubmit} siteUpdateInfo={siteUpdateInfo} setSiteUpdateInfo={setSiteUpdateInfo} />
         </div>

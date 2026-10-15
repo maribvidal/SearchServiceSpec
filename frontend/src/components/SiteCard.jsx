@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { deleteSite } from "../services/api";
+import { deleteSite } from "../services/SitesService.js";
 
 function SiteCard({ onDeleted, sitename, siteurl, siteid }) {
     const siteId = siteid

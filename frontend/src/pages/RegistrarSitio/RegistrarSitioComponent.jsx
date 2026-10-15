@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { createSite } from '../../services/api';
+import { createSite } from '../../services/SitesService.js';
 import { useNavigate } from 'react-router-dom';
 
 import RegistrarSitioForm from './RegistrarSitioForm';
@@ -51,7 +51,7 @@ function RegistrarSitioComponent({ userId }) {
     }
 
     return (
-        <div class="siteform">
+        <div className="siteform">
             <RegistrarSitioForm handleSubmit={handleSubmit} siteCreateInfo={siteCreateInfo} setSiteCreateInfo={setSiteCreateInfo} />
         </div>
     )
