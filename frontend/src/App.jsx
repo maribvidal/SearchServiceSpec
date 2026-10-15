@@ -5,7 +5,7 @@ import Navbar from './components/Navbar.jsx'
 
 import MisSitios from './pages/MisSitios/MisSitios.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
-import RegistrarSitioPage from './pages/RegistrarSitioPage.jsx'
+import RegistrarSitioPage from './pages/RegistrarSitio/RegistrarSitioPage.jsx'
 import ModificarSitioPage from './pages/ModificarSitio/ModificarSitioPage.jsx'
 
 function App() {

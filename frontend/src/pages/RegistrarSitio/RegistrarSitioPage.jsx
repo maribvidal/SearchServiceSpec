@@ -1,4 +1,4 @@
-import RegistrarSitioComponent from '../components/RegistrarSitioComponent.jsx';
+import RegistrarSitioComponent from './RegistrarSitioComponent.jsx';
 
 function RegistrarSitioPage({ userId }) {
 
