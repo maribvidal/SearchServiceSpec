@@ -26,6 +26,15 @@ export declare class UsersService {
     } & {
         id: string;
     }) | null>;
+    isEmailBeingUsed(email: string): import("mongoose").Query<{
+        _id: import("mongoose").Types.ObjectId;
+    } | null, import("mongoose").Document<unknown, {}, User, {}, import("mongoose").DefaultSchemaOptions> & User & Required<{
+        _id: import("mongoose").Types.ObjectId;
+    }> & {
+        __v: number;
+    } & {
+        id: string;
+    }, {}, User, "findOne", {}>;
     update(id: string, updateUserDto: UpdateUserDto): Promise<(import("mongoose").Document<unknown, {}, User, {}, import("mongoose").DefaultSchemaOptions> & User & Required<{
         _id: import("mongoose").Types.ObjectId;
     }> & {

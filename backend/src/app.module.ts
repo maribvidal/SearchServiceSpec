@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
@@ -9,7 +10,15 @@ import { MongooseModule } from '@nestjs/mongoose'
   imports: [
     UsersModule, 
     SitesModule,
-    MongooseModule.forRoot('mongodb+srv://marianobazalarvidal_db_user:NhS2yD4UjdUywKIM@cluster0.aqcpgx3.mongodb.net/?appName=Cluster0')],
+    ConfigModule.forRoot(),
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => ({
+        uri: configService.get<string>('MONGODB_CONNECTION'),
+      }),
+      inject: [ConfigService],
+    })
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

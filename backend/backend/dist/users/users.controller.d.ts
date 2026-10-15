@@ -27,6 +27,15 @@ export declare class UsersController {
     } & {
         id: string;
     }) | null>;
+    isEmailBeingUsed(email: string): import("mongoose").Query<{
+        _id: import("mongoose").Types.ObjectId;
+    } | null, import("mongoose").Document<unknown, {}, import("./schemas/user.schema").User, {}, import("mongoose").DefaultSchemaOptions> & import("./schemas/user.schema").User & Required<{
+        _id: import("mongoose").Types.ObjectId;
+    }> & {
+        __v: number;
+    } & {
+        id: string;
+    }, {}, import("./schemas/user.schema").User, "findOne", {}>;
     findOneByUserId(userId: string): Promise<(import("mongoose").Document<unknown, {}, import("../sites/schemas/site.schema").Site, {}, import("mongoose").DefaultSchemaOptions> & import("../sites/schemas/site.schema").Site & Required<{
         _id: import("mongoose").Types.ObjectId;
     }> & {

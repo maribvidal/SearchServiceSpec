@@ -5,9 +5,8 @@ const openapi = require("@nestjs/swagger");
 class CreateUserDto {
     name;
     email;
-    password;
     static _OPENAPI_METADATA_FACTORY() {
-        return { name: { required: true, type: () => String }, email: { required: true, type: () => String }, password: { required: true, type: () => String } };
+        return { name: { required: true, type: () => String }, email: { required: true, type: () => String } };
     }
 }
 exports.CreateUserDto = CreateUserDto;

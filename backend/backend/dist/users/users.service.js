@@ -32,6 +32,9 @@ let UsersService = class UsersService {
     findOne(id) {
         return this.userModel.findById(id).exec();
     }
+    isEmailBeingUsed(email) {
+        return this.userModel.exists({ email: email });
+    }
     update(id, updateUserDto) {
         return this.userModel.findByIdAndUpdate(id, updateUserDto, { returnDocument: 'after' }).exec();
     }

@@ -36,6 +36,9 @@ let UsersController = class UsersController {
     findOne(id) {
         return this.usersService.findOne(id);
     }
+    isEmailBeingUsed(email) {
+        return this.usersService.isEmailBeingUsed(email);
+    }
     findOneByUserId(userId) {
         return this.sitesService.findByUserId(userId);
     }
@@ -73,6 +76,15 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], UsersController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Get)('/emails/:email'),
+    (0, swagger_1.ApiOperation)({ summary: 'Revisar si un correo está registrado.' }),
+    openapi.ApiResponse({ status: 200 }),
+    __param(0, (0, common_1.Param)('email')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], UsersController.prototype, "isEmailBeingUsed", null);
 __decorate([
     (0, common_1.Get)(':userId/sites'),
     (0, swagger_1.ApiOperation)({ summary: 'Obtener los sitios que hayan sido creados por un usuario.' }),

@@ -15,7 +15,6 @@ const mongoose_2 = require("mongoose");
 let User = class User extends mongoose_2.Document {
     name;
     email;
-    password;
 };
 exports.User = User;
 __decorate([
@@ -26,10 +25,6 @@ __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], User.prototype, "email", void 0);
-__decorate([
-    (0, mongoose_1.Prop)(),
-    __metadata("design:type", String)
-], User.prototype, "password", void 0);
 exports.User = User = __decorate([
     (0, mongoose_1.Schema)()
 ], User);

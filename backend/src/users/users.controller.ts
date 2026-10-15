@@ -31,7 +31,7 @@ export class UsersController {
   }
 
   // No sé si este endpoint sea RESTful, consultarle a los profesores luego.
-  @Get('/email/:email')
+  @Get('/emails/:email')
   @ApiOperation({ summary: 'Revisar si un correo está registrado.' })
   isEmailBeingUsed(@Param('email') email: string) {
     return this.usersService.isEmailBeingUsed(email);
