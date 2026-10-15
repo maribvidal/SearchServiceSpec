@@ -8,10 +8,6 @@ export class User extends Document {
 
   @Prop()
   email: string;
-
-  // Luego lo tengo que volver un hash.
-  @Prop()
-  password: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
