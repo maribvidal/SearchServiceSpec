@@ -1,7 +1,7 @@
 // Este componente busca reunir los inputs en común que tienen los
 // formularios de manipulación de un sitio.
 
-function SiteUpdateForm({ handleSubmit, siteUpdateInfo, setSiteUpdateInfo }) {
+function ModificarSitioForm({ handleSubmit, siteUpdateInfo, setSiteUpdateInfo }) {
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -31,4 +31,4 @@ function SiteUpdateForm({ handleSubmit, siteUpdateInfo, setSiteUpdateInfo }) {
     )
 }
 
-export default SiteUpdateForm;
+export default ModificarSitioForm;

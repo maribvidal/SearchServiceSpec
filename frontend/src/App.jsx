@@ -3,10 +3,10 @@ import { Routes, Route } from 'react-router-dom'
 
 import Navbar from './components/Navbar.jsx'
 
-import MisSitios from './pages/MisSitios.jsx'
+import MisSitios from './pages/MisSitios/MisSitios.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
 import RegistrarSitioPage from './pages/RegistrarSitioPage.jsx'
-import ModificarSitioPage from './pages/ModificarSitioPage.jsx'
+import ModificarSitioPage from './pages/ModificarSitio/ModificarSitioPage.jsx'
 
 function App() {
   const loggedUserId = "6ab2e66b2b670fb41f75c033"; // Por ahora voy a utilizar un userId provisorio

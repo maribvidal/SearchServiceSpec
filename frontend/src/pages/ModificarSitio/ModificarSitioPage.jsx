@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { updateSite, getSiteById } from '../services/api'; 
+import { updateSite, getSiteById } from '../../services/api'; 
 
-import SiteUpdateForm from '../components/SiteUpdateForm';
+import ModificarSitioForm from './ModificarSitioForm';
 
 function ModificarSitioPage() {
     const { id } = useParams(); // Extraemos el id de la URL actual
@@ -71,7 +71,7 @@ function ModificarSitioPage() {
     return (
         <div class="siteform">
             <h2>Modificar Sitio</h2>
-            <SiteUpdateForm handleSubmit={handleSubmit} siteUpdateInfo={siteUpdateInfo} setSiteUpdateInfo={setSiteUpdateInfo} />
+            <ModificarSitioForm handleSubmit={handleSubmit} siteUpdateInfo={siteUpdateInfo} setSiteUpdateInfo={setSiteUpdateInfo} />
         </div>
     )
 }

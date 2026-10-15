@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { getSitesByUser } from '../services/api';
-import SiteCard from '../components/SiteCard';
+import { getSitesByUser } from '../../services/api';
+import SiteCard from '../../components/SiteCard';
 
 function MisSitios({ userId }) {
   const [sites, setSites] = useState([]); // Con esto mantengo la información de los sitios en la página

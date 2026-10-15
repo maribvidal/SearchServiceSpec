@@ -1,7 +1,7 @@
 // Este componente tiene los inputs que son necesarios para
 // poder crear un sitio.
 
-function SiteCreateForm({ handleSubmit, siteCreateInfo, setSiteCreateInfo }) {
+function RegistrarSitioForm({ handleSubmit, siteCreateInfo, setSiteCreateInfo }) {
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -41,4 +41,4 @@ function SiteCreateForm({ handleSubmit, siteCreateInfo, setSiteCreateInfo }) {
     )
 }
 
-export default SiteCreateForm;
+export default RegistrarSitioForm;
