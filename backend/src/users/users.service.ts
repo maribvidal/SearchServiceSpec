@@ -24,6 +24,10 @@ export class UsersService {
     return this.userModel.findById(id).exec();
   }
 
+  isEmailBeingUsed(email: string) {
+    return this.userModel.exists({ email: email });
+  }
+
   update(id: string, updateUserDto: UpdateUserDto) {
     return this.userModel.findByIdAndUpdate(id, updateUserDto, { returnDocument: 'after' }).exec();
   }

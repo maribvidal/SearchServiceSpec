@@ -30,6 +30,13 @@ export class UsersController {
     return this.usersService.findOne(id);
   }
 
+  // No sé si este endpoint sea RESTful, consultarle a los profesores luego.
+  @Get('/email/:email')
+  @ApiOperation({ summary: 'Revisar si un correo está registrado.' })
+  isEmailBeingUsed(@Param('email') email: string) {
+    return this.usersService.isEmailBeingUsed(email);
+  }
+
   @Get(':userId/sites')
   @ApiOperation({ summary: 'Obtener los sitios que hayan sido creados por un usuario.' })
   findOneByUserId(@Param('userId') userId: string) {
